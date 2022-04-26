@@ -15,7 +15,7 @@ $text2: #dbdbdb;
 
 body{
     background-color: $bg;
-    width: 1000px;
+    width: 800px;
     margin: 0 auto;
 }
 
@@ -34,8 +34,9 @@ nav{
         transition: transform .2s ease-in;
     }
 
-    .logo:hover{
-        transform: scale(0.9);
+    .logo:hover,
+    .logo:focus{
+        transform: scale(1.1);
     }
 
     .nav-links{
@@ -91,11 +92,12 @@ main{
     font-size: 17px;
     font-weight: bold;
     background-color: $primary;
-    color: $bg;
+    text-decoration: none !important;
+    color: $bg !important;
     border: 2px transparent solid;
     border-radius: 5px;
     cursor: pointer;
-    outline: none;
+    outline: 0px rgba($primary, 0.2) solid;
     transition: .2s ease-in;
 
     a{
@@ -106,7 +108,8 @@ main{
 
 .btn:hover,
 .btn:focus{
-    filter: brightness(1.5);
+    outline-width: 4px;
+    filter: brightness(1.2);
 }
 
 .btn.outline{
@@ -144,6 +147,6 @@ main{
 
 @media screen and (max-width: 1000px) {
     .nav-links{
-
+        transform: scaleX(0);
     }    
 }
