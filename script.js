@@ -2,6 +2,13 @@ const burger = document.querySelector('.burger');
 const nav = document.querySelector('.nav-links');
 const links = nav.querySelectorAll('a');
 
+const theme = document.querySelector('.theme');
+
+window.addEventListener('load', ()=>{
+    var bool = JSON.parse(localStorage.getItem('light'));
+    if(bool == true) document.body.classList.add('light');
+});
+
 burger.addEventListener('click', ()=>{
     ToggleNav();
 });
@@ -19,3 +26,10 @@ function ToggleNav(){
     nav.classList.toggle('active');
     document.body.classList.toggle('active');
 }
+
+theme.addEventListener('click', ()=>{
+    var toggle = document.body.classList.toggle('light');
+    theme.querySelector('i').classList.toggle('bxs-sun');
+    theme.querySelector('i').classList.toggle('bxs-moon');
+    localStorage.setItem('light', toggle);
+})

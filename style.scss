@@ -1,14 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
 
-$primary: #F25252;
-$bg: #15171a;
-$text1: #f0f0f0;
-$text2: #dbdbdb;
-
-$body-width: 800px;
-$heading-fs: 36px;
-$text-fs: 17px;
-
 *{
     padding: 0;
     margin: 0;
@@ -17,10 +8,33 @@ $text-fs: 17px;
     scroll-behavior: smooth;
 }
 
+:root{
+    --primary: #F25252;
+    --bg: #15171a;
+    --text1: #f0f0f0;
+    --text2: #dbdbdb;
+    --body-width: 800px;
+    --heading-size: 36px;
+    --text-size: 17px;
+    --bg-opacity: .05;
+}
+
 body{
-    background-color: $bg;
-    width: $body-width;
+    background-color: var(--bg);
+    width: var(--body-width);
     margin: 0 auto;
+    overflow-x: hidden;
+}
+
+body.light{
+    --primary: #d14747;
+    --bg: #fff;
+    --text1: #333;
+    --text2: #555;
+
+    .list li{
+        background-color: #eee;
+    }
 }
 
 nav{
@@ -49,9 +63,10 @@ nav{
         list-style: none;
         width: 100%;
         justify-content: right;
+        align-items: center;
 
         a{
-            color: $text2;
+            color: var(--text2);
             text-decoration: none;
             font-size: 20px;
             padding: 5px 15px;
@@ -60,7 +75,7 @@ nav{
         }
 
         a:hover{
-            color: $primary;
+            color: var(--primary);
         }
     }
 }
@@ -81,33 +96,33 @@ main{
 }
 
 .heading{
-    color: $text1;
-    font-size: $heading-fs;
+    color: var(--text1);
+    font-size: var(--heading-size);
     font-weight: bold;
 }
 
 .text{
-    color: $text2;
-    font-size: $text-fs;
+    color: var(--text2);
+    font-size: var(--text-size);
     font-weight: lighter;
 }
 
 .btn{
     padding: 10px 25px;
-    font-size: $text-fs;
+    font-size: var(--text-size);
     font-weight: bold;
-    background-color: $primary;
+    background-color: var(--primary);
     text-decoration: none !important;
-    color: $bg !important;
+    color: var(--bg) !important;
     border: 2px transparent solid;
     border-radius: 5px;
     cursor: pointer;
-    outline: 0px rgba($primary, 0.2) solid;
+    outline: 0px rgba(var(--primary), 0.2) solid;
     transition: .2s ease-in;
 
     a{
         text-decoration: none !important;
-        color: $bg !important;
+        color: var(--bg) !important;
     }
 }
 
@@ -119,32 +134,32 @@ main{
 
 .btn.outline{
     background-color: transparent;
-    color: $primary;
-    border-color: $primary;
+    color: var(--primary);
+    border-color: var(--primary);
 }
 
 .btn.outline:hover,
 .btn.outline:focus{
     filter: none;
-    background-color: $primary;
-    color: $bg;
+    background-color: var(--primary);
+    color: var(--bg);
 }
 
 .link{
-    color: $primary;
+    color: var(--primary);
 }
 
 .link:visited{
-    color: $primary;
+    color: var(--primary);
 }
 
 .list{
-    color: $text2;
-    font-size: $text-fs;
+    color: var(--text2);
+    font-size: var(--text-size);
     list-style: none;
 
     li{
-        background-color: rgba(#fff, .05);
+        background-color: rgba(#fff, var(--bg-opacity));
         padding: 20px;
         border-radius: 5px;
     }
@@ -154,20 +169,25 @@ main{
     display: none;
 }
 
+.theme{
+    cursor: pointer;
+    color: var(--text2);
+    font-size: 24px;
+}
+
 @media screen and (max-width: 900px) {
-    body{
+    :root{
+        --body-width: 100%;
+        --heading-size: 30px;
+        --text-size: 15px;
+    }
+
+    .logo{
         width: 100%;
-        overflow-x: hidden;
     }
 
-    .heading{
-        font-size: 30px;
-    }
-
-    .text,
-    .list,
-    .btn{
-        font-size: 15px;
+    .logo img{
+        width: 48px !important;
     }
 
     .btn{
@@ -177,19 +197,19 @@ main{
     .burger{
         display: block;
         font-size: 32px;
-        color: $text2;
+        color: var(--text2);
         cursor: pointer;
     }
 
     .burger.active{
-        color: $primary;
+        color: var(--primary);
     }
 
     .nav-links{
         position: absolute;
         width: 100%;
         height: 87vh;
-        background-color: $bg;
+        background-color: var(--bg);
         left: 100%;
         bottom: 0;
         flex-direction: column;
