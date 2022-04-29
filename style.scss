@@ -20,10 +20,13 @@
 }
 
 body{
+    overflow-x: hidden;
+}
+
+body{
     background-color: var(--bg);
     width: var(--body-width);
     margin: 0 auto;
-    overflow-x: hidden;
 }
 
 body.light{
@@ -147,6 +150,7 @@ main{
 
 .link{
     color: var(--primary);
+    font-weight: bold;
 }
 
 .link:visited{
@@ -161,7 +165,20 @@ main{
     li{
         background-color: rgba(#fff, var(--bg-opacity));
         padding: 20px;
+        padding-left: 30px;
         border-radius: 5px;
+        position: relative;
+    }
+
+    li::before{
+        content: '';
+        position: absolute;
+        width: 8px;
+        height: 100%;
+        background-color: var(--primary);
+        border-radius: 5px 0px 0px 5px;
+        left: 0;
+        bottom: 0;
     }
 }
 
@@ -210,12 +227,13 @@ main{
         width: 100%;
         height: 87vh;
         background-color: var(--bg);
-        left: 100%;
-        bottom: 0;
         flex-direction: column;
         align-items: center;
-        transform-origin: right;
-        transition: left .2s ease-in-out;
+        left: 0;
+        bottom: 0;
+        z-index: 1;
+        transform: translateX(100%);
+        transition: transform .2s ease-in-out;
 
         li{
             margin: 20px 0;
@@ -223,10 +241,10 @@ main{
     }
 
     .nav-links.active{
-        left: 0;
+        transform: translateX(0);
     }
 
     body.active{
-        overflow: hidden;
+        overflow-y: hidden;
     }
 }

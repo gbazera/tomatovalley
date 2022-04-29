@@ -25,6 +25,7 @@ function ToggleNav(){
     burger.querySelector('i').classList.toggle('bx-x');
     nav.classList.toggle('active');
     document.body.classList.toggle('active');
+    window.scroll(0, document.body.scrollTop);
 }
 
 theme.addEventListener('click', ()=>{
