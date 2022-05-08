@@ -27,6 +27,7 @@ body{
     background-color: var(--bg);
     width: var(--body-width);
     margin: 0 auto;
+    transition: background-color .2s;
 }
 
 body.light{
@@ -102,12 +103,14 @@ main{
     color: var(--text1);
     font-size: var(--heading-size);
     font-weight: bold;
+    transition: color .2s ease-in;
 }
 
 .text{
     color: var(--text2);
     font-size: var(--text-size);
     font-weight: lighter;
+    transition: color .2s ease-in;
 }
 
 .btn{
@@ -167,6 +170,7 @@ main{
         padding-left: 30px;
         border-radius: 5px;
         position: relative;
+        transition: background-color .2s ease-in;
     }
 
     li::before{
