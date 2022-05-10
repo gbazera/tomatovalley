@@ -99,6 +99,15 @@ main{
     }
 }
 
+.preview{
+    display: block;
+    width: 100%;
+    height: 100px;
+    background-image: url('img/preview.gif');
+    background-size: contain;
+    border-radius: 5px;
+}
+
 .heading{
     color: var(--text1);
     font-size: var(--heading-size);
